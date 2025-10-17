@@ -13,15 +13,30 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+
+    // ✅ Next.jsのTypeScriptプラグイン
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    // ✅ 絶対パスインポートの設定（components, constants など）
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+
+  // ✅ 型解決範囲を明示的に拡張
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/**/*",
+    "constants/**/*",
+    "types/**/*"
+  ],
   "exclude": ["node_modules"]
 }
