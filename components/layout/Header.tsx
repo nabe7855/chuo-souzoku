@@ -1,7 +1,7 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const navLinks = [
   { name: "サービス内容", href: "#services" },
@@ -14,15 +14,6 @@ const navLinks = [
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleLinkClick = (href: string) => {
     setIsOpen(false);
@@ -30,19 +21,11 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header
-      className={`md:hidden fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${
-        isScrolled || isOpen
-          ? "bg-white shadow-md"
-          : "bg-transparent text-white"
-      }`}
-    >
+    <header className="md:hidden fixed top-0 left-0 right-0 z-40 bg-white shadow-md transition-all duration-300">
       <div className="container mx-auto px-6 h-16 flex justify-between items-center">
         <a
           href="#"
-          className={`font-serif font-bold text-lg transition-colors ${
-            isScrolled || isOpen ? "text-navy" : "text-white"
-          }`}
+          className="font-serif font-bold text-lg text-navy"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
@@ -52,9 +35,7 @@ const Header: React.FC = () => {
         </a>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`z-50 transition-colors ${
-            isScrolled || isOpen ? "text-navy" : "text-white"
-          }`}
+          className="z-50 text-navy transition-colors"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
