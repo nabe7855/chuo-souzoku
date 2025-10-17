@@ -1,9 +1,8 @@
-
-import React from 'react';
-import SectionTitle from '../ui/SectionTitle';
-import Card from '../ui/Card';
-import { REVIEWS } from '../../constants';
-import { Star } from 'lucide-react';
+import { Star } from "lucide-react";
+import React from "react";
+import { REVIEWS } from "../../constants";
+import Card from "../ui/Card";
+import SectionTitle from "../ui/SectionTitle";
 
 const ReviewSection: React.FC = () => {
   return (
@@ -15,10 +14,20 @@ const ReviewSection: React.FC = () => {
             <Card key={index} className="flex flex-col">
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className={`w-5 h-5 ${i < review.rating ? 'text-gold fill-current' : 'text-gray-300'}`} />
+                  <Star
+                    key={i}
+                    className={`w-5 h-5 ${
+                      i < review.rating
+                        ? "text-gold fill-current"
+                        : "text-gray-300"
+                    }`}
+                  />
                 ))}
               </div>
-              <p className="text-gray-800 italic mb-4 flex-grow">"{review.quote}"</p>
+              {/* ✅ ダブルクォーテーションをHTMLエスケープ */}
+              <p className="text-gray-800 italic mb-4 flex-grow">
+                &quot;{review.quote}&quot;
+              </p>
               <div>
                 <p className="font-bold text-navy">{review.author}</p>
                 <p className="text-sm text-gray-500">{review.details}</p>
