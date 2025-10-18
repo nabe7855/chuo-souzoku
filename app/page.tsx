@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+
+// ✅ セクション群
 import HeroSection from "@/components/sections/HeroSection";
 import BackgroundSection from "@/components/sections/BackgroundSection";
 import ProblemSection from "@/components/sections/ProblemSection";
@@ -14,7 +16,11 @@ import FlowSection from "@/components/sections/FlowSection";
 import ReviewSection from "@/components/sections/ReviewSection";
 import FAQSection from "@/components/sections/FAQSection";
 import CTASection from "@/components/sections/CTASection";
+
+// ✅ 共通コンポーネント
 import ContractFormModal from "@/components/ContractFormModal";
+
+// ✅ 定数
 import { PLANS } from "@/constants";
 import type { Plan } from "@/types";
 
@@ -22,40 +28,67 @@ export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<Plan>(PLANS[1]);
 
-  // ✅ モーダル開閉関数
+  // ✅ 契約モーダルを開く
   const openModalWithPlan = (plan: Plan) => {
     setSelectedPlan(plan);
     setIsModalOpen(true);
   };
 
-  // ✅ CTAセクションへのスクロール
+  // ✅ CTAセクションまでスムーズスクロール
   const scrollToConsultation = () => {
     const ctaSection = document.getElementById("cta-section");
     if (ctaSection) {
-      ctaSection.scrollIntoView({ behavior: "smooth" });
+      ctaSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   return (
     <>
-      {/* ✅ 必須 props を渡す */}
+      {/* ✅ ヒーローセクション */}
       <HeroSection
         onContractClick={() => openModalWithPlan(PLANS[1])}
         onConsultClick={scrollToConsultation}
       />
 
+      {/* ✅ 以下、順にセクションを展開 */}
       <BackgroundSection />
-      <div id="problems"><ProblemSection /></div>
-      <div id="services"><ServiceSection /></div>
-      <div id="reason"><ReasonSection /></div>
-      <div id="team"><TeamSection /></div>
-      <div id="comparison"><ComparisonSection /></div>
-      <div id="price"><PriceSection onContractClick={openModalWithPlan} /></div>
-      <div id="simulator"><SimulatorSection /></div>
-      <div id="flow"><FlowSection onContractClick={() => openModalWithPlan(PLANS[1])} /></div>
-      <div id="reviews"><ReviewSection /></div>
-      <div id="faq"><FAQSection /></div>
-      <div id="cta-section"><CTASection onConsultClick={scrollToConsultation} /></div>
+      <div id="problems">
+        <ProblemSection />
+      </div>
+      <div id="services">
+        <ServiceSection />
+      </div>
+      <div id="reason">
+        <ReasonSection />
+      </div>
+      <div id="team">
+        <TeamSection />
+      </div>
+      <div id="comparison">
+        <ComparisonSection />
+      </div>
+      <div id="price">
+        <PriceSection onContractClick={openModalWithPlan} />
+      </div>
+      <div id="simulator">
+        <SimulatorSection />
+      </div>
+      <div id="flow">
+        <FlowSection
+          onContractClick={() => openModalWithPlan(PLANS[1])}
+        />
+      </div>
+      <div id="reviews">
+        <ReviewSection />
+      </div>
+      <div id="faq">
+        <FAQSection />
+      </div>
+
+      {/* ✅ CTAセクション（ページ下部） */}
+      <div id="cta-section">
+        <CTASection onConsultClick={scrollToConsultation} />
+      </div>
 
       {/* ✅ 契約モーダル */}
       {isModalOpen && (
