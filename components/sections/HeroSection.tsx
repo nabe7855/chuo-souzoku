@@ -12,11 +12,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   onConsultClick,
 }) => {
   return (
-    <section className="relative w-full overflow-hidden flex flex-col">
-      {/* ✅ HeroVisual: 背景画像部分（高さは自動） */}
+    <section className="w-full flex flex-col items-center overflow-hidden">
+      {/* ✅ 画像セクション */}
       <HeroVisual />
 
-      {/* ✅ HeroCTA: 常に下に続く */}
+      {/* ✅ CTAセクション */}
       <HeroCTA
         onContractClick={onContractClick}
         onConsultClick={onConsultClick}

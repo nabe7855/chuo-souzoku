@@ -2,17 +2,17 @@ import React from "react";
 
 const HeroVisual: React.FC = () => {
   return (
-    <section className="relative overflow-hidden min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh]">
-      <div
-        className="absolute inset-0 bg-cover bg-top bg-no-repeat"
-        style={{
-          backgroundImage: "url('/ヒーローセクション.png')",
-          backgroundPosition: "top center",
-        }}
-      ></div>
-      {/* オーバーレイ */}
-      <div className="absolute inset-0 bg-navy/"></div>
-    </section>
+    <div className="w-screen overflow-hidden bg-navy flex justify-center">
+      <img
+        src="/ハローセクション.png"
+        alt="相続支援ヒーローセクション"
+        className="
+          w-full h-auto 
+          object-contain 
+          max-w-none
+        "
+      />
+    </div>
   );
 };
 
