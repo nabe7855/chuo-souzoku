@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Edit, FileDown, Phone } from "lucide-react";
+import { Edit, Phone } from "lucide-react";
 import React from "react";
 import Button from "../ui/Button";
 
@@ -38,16 +38,6 @@ const HeroCTA: React.FC<HeroCTAProps> = ({
           className="bg-navy text-white border border-white font-semibold hover:bg-blue-800 transition-all duration-300 w-72 md:w-auto"
         >
           <Edit size={24} /> 今すぐ契約する
-        </Button>
-
-        {/* 資料ダウンロード */}
-        <Button
-          onClick={() => alert("資料ダウンロードの準備中です")}
-          variant="outline"
-          size="md"
-          className="bg-white/20 text-white border-white font-semibold hover:bg-white/30 transition-all duration-300 w-72 md:w-auto"
-        >
-          <FileDown size={24} /> 資料をダウンロード
         </Button>
       </motion.div>
     </section>
