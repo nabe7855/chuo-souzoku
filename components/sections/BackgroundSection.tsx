@@ -17,7 +17,7 @@ const BackgroundSection: React.FC = () => {
           <Card className="text-center">
             <PieChart className="w-16 h-16 text-gold mx-auto mb-4" />
             <h3 className="text-xl font-bold text-navy mb-2">
-              1000万円未満でも3割が争う
+              相続トラブルの内、相続税非課税世帯が約80％
             </h3>
             <p className="text-gray-600">
               遺産額の大小にかかわらず、相続トラブルは発生します。「うちは財産がないから大丈夫」という思い込みが、かえって準備を遅らせる原因になっています。
