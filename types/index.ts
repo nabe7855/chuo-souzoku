@@ -1,4 +1,4 @@
-import type React from 'react';
+import type React from "react";
 
 export interface Plan {
   name: string;
@@ -13,6 +13,7 @@ export interface Review {
   author: string;
   details: string;
   rating: number;
+  image?: string;
 }
 
 export interface FAQItem {
@@ -21,13 +22,13 @@ export interface FAQItem {
 }
 
 export interface ServiceItem {
-    category: string;
-    items: { name: string; light: string; standard: string; premium: string }[];
+  category: string;
+  items: { name: string; light: string; standard: string; premium: string }[];
 }
 
 export interface TeamMember {
-    name: string;
-    title: string;
-    // FIX: Add size property to allow passing it to lucide-react icons.
-    icon: React.ComponentType<{ className?: string; size?: number }>;
+  name: string;
+  title: string;
+  // FIX: Add size property to allow passing it to lucide-react icons.
+  icon: React.ComponentType<{ className?: string; size?: number }>;
 }

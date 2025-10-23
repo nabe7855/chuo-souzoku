@@ -37,15 +37,7 @@ const FlowSection: React.FC<FlowSectionProps> = ({ onContractClick }) => {
               <FlowStep icon={<FileCheck size={24} />} title="STEP 3: ご契約" description="内容にご納得いただけたら契約手続きに進みます。" delay={0.4} />
             </div>
           </div>
-          <div>
-            <h3 className="font-serif text-2xl font-bold text-navy mb-8 text-center">② 今すぐ契約</h3>
-            <div className="relative flex flex-col items-center space-y-8">
-              <div className="absolute left-1/2 top-10 bottom-10 w-0.5 bg-gray-300 -translate-x-1/2"></div>
-              <FlowStep icon={<Edit size={24} />} title="STEP 1: プラン選択" description="ご希望のプランを選択し、契約フォームへ。" delay={0} />
-              <FlowStep icon={<Send size={24} />} title="STEP 2: フォーム送信" description="必要事項を入力し送信。この時点で契約が成立します。" delay={0.2} />
-              <FlowStep icon={<FileCheck size={24} />} title="STEP 3: 手続き開始" description="契約控えがメールで届き、担当者からご連絡します。" delay={0.4} />
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
