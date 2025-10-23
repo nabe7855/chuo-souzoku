@@ -40,18 +40,15 @@ const ComparisonSection: React.FC = () => {
 
           {/* 🖱️ スクロールヒント（中央表示） */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center md:hidden">
-            <div className="bg-white/80 px-5 py-3 rounded-md shadow-md text-center font-semibold">
-              {/* 上段：指アイコン＋矢印 */}
+            <div className="bg-black/10 px-5 py-3 rounded-md shadow-md text-center font-semibold">
               <div className="flex items-center justify-center space-x-2 mb-1">
                 <img
-                  src="/finger-cursor-icon.png" // public配下に配置した指アイコン
+                  src="/finger-cursor-icon.png"
                   alt="スクロールアイコン"
                   className="w-7 h-7"
                 />
                 <ChevronRight className="w-5 h-5 text-navy animate-bounce-x" />
               </div>
-
-              {/* 下段：テキスト */}
               <p className="text-base font-bold text-black">
                 スクロールできます
               </p>
@@ -60,13 +57,20 @@ const ComparisonSection: React.FC = () => {
 
           {/* 横スクロール可能な表 */}
           <div className="overflow-x-auto mt-8 scrollbar-thin scrollbar-thumb-gray-300">
-            <table className="min-w-[900px] text-center">
+            <table className="min-w-[900px] w-full border-separate border-spacing-0 text-center align-middle">
               <thead className="bg-navy text-white">
                 <tr>
-                  <th className="p-4 font-bold text-left">項目</th>
-                  <th className="p-4 font-bold">銀行・信託銀行</th>
-                  <th className="p-4 font-bold">税理士法人</th>
-                  <th className="p-4 font-bold border-2 border-gold bg-gold-dark">
+                  {/* ✅ 固定列：完全中央揃え */}
+                  <th className="py-4 px-0 font-bold text-center align-middle sticky left-0 bg-navy z-20">
+                    項目
+                  </th>
+                  <th className="p-4 font-bold text-center align-middle">
+                    銀行・信託銀行
+                  </th>
+                  <th className="p-4 font-bold text-center align-middle">
+                    税理士法人
+                  </th>
+                  <th className="p-4 font-bold text-center align-middle border-2 border-gold bg-gold-dark">
                     中央相続事務所
                   </th>
                 </tr>
@@ -74,14 +78,17 @@ const ComparisonSection: React.FC = () => {
               <tbody>
                 {comparisonData.map((row, index) => (
                   <tr key={index} className="border-b border-gray-200">
-                    <td className="p-4 text-left">{row.feature}</td>
-                    <td className="p-4 text-2xl font-bold text-gray-500">
+                    {/* ✅ 固定列：完全中央揃え */}
+                    <td className="py-4 px-0 text-center align-middle sticky left-0 bg-white z-10 border-r border-gray-200">
+                      {row.feature}
+                    </td>
+                    <td className="p-4 text-2xl font-bold text-gray-500 text-center align-middle">
                       {row.bank}
                     </td>
-                    <td className="p-4 text-2xl font-bold text-gray-500">
+                    <td className="p-4 text-2xl font-bold text-gray-500 text-center align-middle">
                       {row.taxFirm}
                     </td>
-                    <td className="p-4 text-3xl font-bold text-gold-dark bg-gold/10">
+                    <td className="p-4 text-3xl font-bold text-gold-dark bg-gold/10 text-center align-middle">
                       {row.chuo}
                     </td>
                   </tr>

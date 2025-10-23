@@ -32,61 +32,70 @@ const ServiceSection: React.FC = () => {
             </div>
           )}
 
-          {/* 🖱️ スクロールヒント（矢印＋指アイコン） */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center md:hidden">
-  <div className="bg-white/80 px-5 py-3 rounded-md shadow-md text-center font-semibold">
-    {/* 上段：指アイコン＋矢印 */}
-    <div className="flex items-center justify-center space-x-2 mb-1">
-      <img
-        src="/finger-cursor-icon.png" // public配下に配置した指アイコン
-        alt="スクロールアイコン"
-        className="w-7 h-7"
-      />
-      <ChevronRight className="w-5 h-5 text-navy animate-bounce-x" />
-    </div>
+          {/* 🖱️ スクロールヒント */}
+          <div className="absolute top-1/2 left-2/3 -translate-x-1/2 z-30 flex items-center justify-center md:hidden">
+            <div className="bg-black/10 px-5 py-3 rounded-md shadow-md text-center font-semibold">
+              <div className="flex items-center justify-center space-x-2 mb-1">
+                <img
+                  src="/finger-cursor-icon.png"
+                  alt="スクロールアイコン"
+                  className="w-7 h-7"
+                />
+                <ChevronRight className="w-5 h-5 text-navy animate-bounce-x" />
+              </div>
+              <p className="text-base font-bold text-black">
+                スクロールできます
+              </p>
+            </div>
+          </div>
 
-    {/* 下段：テキスト */}
-    <p className="text-base font-bold text-black">スクロールできます</p>
-  </div>
-</div>
-
-
-          <div className="overflow-x-auto mt-8">
-            <table className="w-full min-w-[600px] text-left">
+          {/* ✅ 横スクロール可能な表 */}
+          <div className="overflow-x-auto mt-8 scrollbar-thin scrollbar-thumb-gray-300">
+            <table className="w-full min-w-[700px] border-separate border-spacing-0 text-center">
               <thead className="bg-navy text-white">
                 <tr>
-                  <th className="p-4 font-bold">項目</th>
-                  <th className="p-4 font-bold text-center">ライト</th>
-                  <th className="p-4 font-bold text-center bg-gold/20">
+                  {/* 左列固定 */}
+                  <th className="p-3 font-bold text-center sticky left-0 bg-navy z-30 shadow-md">
+                    項目
+                  </th>
+                  <th className="p-3 font-bold text-center">ライト</th>
+                  <th className="p-3 font-bold text-center bg-gold/20">
                     スタンダード
                   </th>
-                  <th className="p-4 font-bold text-center">プレミアム</th>
+                  <th className="p-3 font-bold text-center">プレミアム</th>
                 </tr>
               </thead>
+
               <tbody>
                 {SERVICES.map((category, catIndex) => (
                   <React.Fragment key={catIndex}>
-                    <tr>
-                      <td
-                        colSpan={4}
-                        className="p-4 bg-navy/10 font-bold text-navy text-lg"
-                      >
+                    {/* ✅ カテゴリ行（上部固定＋左端も固定） */}
+                    <tr className="sticky top-[52px] z-20">
+                      <td className="p-3 bg-gray-100 font-bold text-navy text-lg border-b  border-r border-gray-300 sticky left-0 z-30 text-center">
                         {category.category}
                       </td>
+                      <td
+                        colSpan={3}
+                        className="p-3 bg-gray-100 font-bold text-navy text-lg border-b border-gray-300 text-center"
+                      />
                     </tr>
+
                     {category.items.map((item, itemIndex) => (
                       <tr
                         key={itemIndex}
                         className="border-b border-gray-200 last:border-b-0"
                       >
-                        <td className="p-4">{item.name}</td>
-                        <td className="p-4 text-center font-bold text-lg">
+                        {/* ✅ 左列固定 */}
+                        <td className="p-3 sticky left-0 bg-white z-10 border-r border-gray-200 text-center font-bold">
+                          {item.name}
+                        </td>
+                        <td className="p-3 font-bold text-lg text-gray-700 text-center">
                           {item.light}
                         </td>
-                        <td className="p-4 text-center font-bold text-lg bg-gold/10 text-gold-dark">
+                        <td className="p-3 font-bold text-lg bg-gold/10 text-gold-dark text-center">
                           {item.standard}
                         </td>
-                        <td className="p-4 text-center font-bold text-lg">
+                        <td className="p-3 font-bold text-lg text-gray-700 text-center">
                           {item.premium}
                         </td>
                       </tr>

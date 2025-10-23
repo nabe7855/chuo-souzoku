@@ -1,21 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 // ✅ セクション群
-import HeroSection from "@/components/sections/HeroSection";
 import BackgroundSection from "@/components/sections/BackgroundSection";
-import ProblemSection from "@/components/sections/ProblemSection";
-import ServiceSection from "@/components/sections/ServiceSection";
-import ReasonSection from "@/components/sections/ReasonSection";
-import TeamSection from "@/components/sections/TeamSection";
 import ComparisonSection from "@/components/sections/ComparisonSection";
-import PriceSection from "@/components/sections/PriceSection";
-import SimulatorSection from "@/components/sections/SimulatorSection";
-import FlowSection from "@/components/sections/FlowSection";
-import ReviewSection from "@/components/sections/ReviewSection";
-import FAQSection from "@/components/sections/FAQSection";
 import CTASection from "@/components/sections/CTASection";
+import FAQSection from "@/components/sections/FAQSection";
+import FlowSection from "@/components/sections/FlowSection";
+import HeroSection from "@/components/sections/HeroSection";
+import PriceSection from "@/components/sections/PriceSection";
+import ProblemSection from "@/components/sections/ProblemSection";
+import ReasonSection from "@/components/sections/ReasonSection";
+import ReviewSection from "@/components/sections/ReviewSection";
+import ServiceSection from "@/components/sections/ServiceSection";
+import SimulatorSection from "@/components/sections/SimulatorSection";
+import TeamSection from "@/components/sections/TeamSection";
 
 // ✅ 共通コンポーネント
 import ContractFormModal from "@/components/ContractFormModal";
@@ -74,9 +74,7 @@ export default function HomePage() {
         <SimulatorSection />
       </div>
       <div id="flow">
-        <FlowSection
-          onContractClick={() => openModalWithPlan(PLANS[1])}
-        />
+        <FlowSection onContractClick={() => openModalWithPlan(PLANS[1])} />
       </div>
       <div id="reviews">
         <ReviewSection />
