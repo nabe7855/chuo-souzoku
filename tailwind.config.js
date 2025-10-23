@@ -5,7 +5,6 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    // v4ではextend不要。theme自体に直接定義する
     colors: {
       navy: {
         DEFAULT: "#0a2463",
@@ -23,8 +22,27 @@ export default {
       sans: ['"Hiragino Sans"', '"Helvetica Neue"', "Arial", "sans-serif"],
       serif: ["Georgia", "serif"],
     },
+
+    // ✨ スクロールヒント用アニメーションを追加
+    extend: {
+      keyframes: {
+        fadeInOut: {
+          "0%": { opacity: "0" },
+          "10%, 70%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+        leftRight: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(6px)" },
+        },
+      },
+      animation: {
+        fadeInOut: "fadeInOut 4s ease-in-out forwards",
+        leftRight: "leftRight 1.2s ease-in-out infinite",
+      },
+    },
   },
-  plugins: {
-    // Tailwind v4ではpostcss経由のプラグイン管理が中心なので通常は空でOK
-  },
+
+  // ✅ スクロールバー表示用プラグインを追加
+  plugins: [require("tailwind-scrollbar")],
 };

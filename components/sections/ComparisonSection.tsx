@@ -1,45 +1,96 @@
-
-import React from 'react';
-import SectionTitle from '../ui/SectionTitle';
-import Card from '../ui/Card';
+import { ChevronRight } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import Card from "../ui/Card";
+import SectionTitle from "../ui/SectionTitle";
 
 const ComparisonSection: React.FC = () => {
+  const [showArrow, setShowArrow] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowArrow(false), 4000); // 4秒後に非表示
+    return () => clearTimeout(timer);
+  }, []);
+
   const comparisonData = [
-    { feature: '相談窓口の一本化', bank: '△', taxFirm: '△', chuo: '⭕️' },
-    { feature: '不動産登記', bank: '❌', taxFirm: '❌', chuo: '⭕️' },
-    { feature: '相続税申告', bank: '△', taxFirm: '⭕️', chuo: '⭕️' },
-    { feature: '料金の明確さ', bank: '△', taxFirm: '△', chuo: '⭕️' },
-    { feature: '全国・非対面対応', bank: '❌', taxFirm: '△', chuo: '⭕️' },
+    { feature: "相談窓口の一本化", bank: "△", taxFirm: "△", chuo: "⭕️" },
+    { feature: "不動産登記", bank: "❌", taxFirm: "❌", chuo: "⭕️" },
+    { feature: "相続税申告", bank: "△", taxFirm: "⭕️", chuo: "⭕️" },
+    { feature: "料金の明確さ", bank: "△", taxFirm: "△", chuo: "⭕️" },
+    { feature: "全国・非対面対応", bank: "❌", taxFirm: "△", chuo: "⭕️" },
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section className="py-16 md:py-24 bg-white relative">
+      <div className="container mx-auto px-6 relative">
         <SectionTitle title="他社との比較" subtitle="Comparison" />
-        <Card>
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[600px] text-center">
+        <Card className="relative overflow-hidden">
+          {/* 👇 スクロール誘導UI（モバイル限定） */}
+          {showArrow && (
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center md:hidden">
+              <div className="flex items-center bg-gradient-to-r from-gold/90 to-yellow-500/90 text-white font-bold rounded-full px-4 py-2 shadow-md backdrop-blur-sm animate-fadeInOut">
+                <div className="flex space-x-1 mr-1">
+                  <ChevronRight className="w-5 h-5 animate-bounce-x delay-0" />
+                  <ChevronRight className="w-5 h-5 animate-bounce-x delay-150" />
+                  <ChevronRight className="w-5 h-5 animate-bounce-x delay-300" />
+                </div>
+                <span className="text-sm tracking-wide">横にスワイプ</span>
+              </div>
+            </div>
+          )}
+
+          {/* 🖱️ スクロールヒント（中央表示） */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center md:hidden">
+            <div className="bg-white/80 px-5 py-3 rounded-md shadow-md text-center font-semibold">
+              {/* 上段：指アイコン＋矢印 */}
+              <div className="flex items-center justify-center space-x-2 mb-1">
+                <img
+                  src="/finger-cursor-icon.png" // public配下に配置した指アイコン
+                  alt="スクロールアイコン"
+                  className="w-7 h-7"
+                />
+                <ChevronRight className="w-5 h-5 text-navy animate-bounce-x" />
+              </div>
+
+              {/* 下段：テキスト */}
+              <p className="text-base font-bold text-black">
+                スクロールできます
+              </p>
+            </div>
+          </div>
+
+          {/* 横スクロール可能な表 */}
+          <div className="overflow-x-auto mt-8 scrollbar-thin scrollbar-thumb-gray-300">
+            <table className="min-w-[900px] text-center">
               <thead className="bg-navy text-white">
                 <tr>
                   <th className="p-4 font-bold text-left">項目</th>
                   <th className="p-4 font-bold">銀行・信託銀行</th>
                   <th className="p-4 font-bold">税理士法人</th>
-                  <th className="p-4 font-bold border-2 border-gold bg-gold-dark">中央相続事務所</th>
+                  <th className="p-4 font-bold border-2 border-gold bg-gold-dark">
+                    中央相続事務所
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonData.map((row, index) => (
                   <tr key={index} className="border-b border-gray-200">
                     <td className="p-4 text-left">{row.feature}</td>
-                    <td className="p-4 text-2xl font-bold text-gray-500">{row.bank}</td>
-                    <td className="p-4 text-2xl font-bold text-gray-500">{row.taxFirm}</td>
-                    <td className="p-4 text-3xl font-bold text-gold-dark bg-gold/10">{row.chuo}</td>
+                    <td className="p-4 text-2xl font-bold text-gray-500">
+                      {row.bank}
+                    </td>
+                    <td className="p-4 text-2xl font-bold text-gray-500">
+                      {row.taxFirm}
+                    </td>
+                    <td className="p-4 text-3xl font-bold text-gold-dark bg-gold/10">
+                      {row.chuo}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         </Card>
+
         <p className="text-center mt-8 text-xl text-navy font-bold">
           他社では別料金や対応不可な手続きも、当事務所はワンプライスで対応します。
         </p>
