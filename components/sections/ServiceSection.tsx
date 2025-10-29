@@ -20,7 +20,7 @@ const ServiceSection: React.FC = () => {
         <Card className="relative overflow-hidden">
           {/* 👇 スクロール誘導UI（モバイル限定） */}
           {showArrow && (
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center md:hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center md:hidden pointer-events-none">
               <div className="flex items-center bg-gradient-to-r from-gold/90 to-yellow-500/90 text-white font-bold rounded-full px-4 py-2 shadow-md backdrop-blur-sm animate-fadeInOut">
                 <div className="flex space-x-1 mr-1">
                   <ChevronRight className="w-5 h-5 animate-bounce-x delay-0" />
@@ -32,9 +32,9 @@ const ServiceSection: React.FC = () => {
             </div>
           )}
 
-          {/* 🖱️ スクロールヒント */}
-          <div className="absolute top-1/2 left-2/3 -translate-x-1/2 z-30 flex items-center justify-center md:hidden">
-            <div className="bg-black/10 px-5 py-3 rounded-md shadow-md text-center font-semibold">
+          {/* 🖱️ スクロールヒント（モバイル） */}
+          <div className="absolute top-1/2 left-2/3 -translate-x-1/2 z-30 flex items-center justify-center md:hidden pointer-events-none">
+            <div className="bg-white/95 px-5 py-3 rounded-md shadow-md text-center font-semibold backdrop-blur-sm border border-gray-200">
               <div className="flex items-center justify-center space-x-2 mb-1">
                 <img
                   src="/finger-cursor-icon.png"
@@ -51,7 +51,7 @@ const ServiceSection: React.FC = () => {
 
           {/* ✅ 横スクロール可能な表 */}
           <div className="overflow-x-auto mt-8 scrollbar-thin scrollbar-thumb-gray-300">
-            <table className="w-full min-w-[700px] border-separate border-spacing-0 text-center">
+            <table className="w-full min-w-[700px] border-separate border-spacing-0 text-center bg-white">
               <thead className="bg-navy text-white">
                 <tr>
                   {/* 左列固定 */}
@@ -66,12 +66,12 @@ const ServiceSection: React.FC = () => {
                 </tr>
               </thead>
 
-              <tbody>
+              <tbody className="bg-white">
                 {SERVICES.map((category, catIndex) => (
                   <React.Fragment key={catIndex}>
-                    {/* ✅ カテゴリ行（上部固定＋左端も固定） */}
+                    {/* ✅ カテゴリ行 */}
                     <tr className="sticky top-[52px] z-20">
-                      <td className="p-3 bg-gray-100 font-bold text-navy text-lg border-b  border-r border-gray-300 sticky left-0 z-30 text-center">
+                      <td className="p-3 bg-gray-100 font-bold text-navy text-lg border-b border-r border-gray-300 sticky left-0 z-30 text-center">
                         {category.category}
                       </td>
                       <td
@@ -85,17 +85,16 @@ const ServiceSection: React.FC = () => {
                         key={itemIndex}
                         className="border-b border-gray-200 last:border-b-0"
                       >
-                        {/* ✅ 左列固定 */}
-                        <td className="p-3 sticky left-0 bg-white z-10 border-r border-gray-200 text-center font-bold">
+                        <td className="p-3 sticky left-0 bg-white z-10 border-r border-gray-200 text-center font-bold text-gray-900">
                           {item.name}
                         </td>
-                        <td className="p-3 font-bold text-lg text-gray-700 text-center">
+                        <td className="p-3 font-bold text-lg text-gray-800 text-center">
                           {item.light}
                         </td>
                         <td className="p-3 font-bold text-lg bg-gold/10 text-gold-dark text-center">
                           {item.standard}
                         </td>
-                        <td className="p-3 font-bold text-lg text-gray-700 text-center">
+                        <td className="p-3 font-bold text-lg text-gray-800 text-center">
                           {item.premium}
                         </td>
                       </tr>
