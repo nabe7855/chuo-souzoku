@@ -8,7 +8,7 @@ const ServiceSection: React.FC = () => {
   const [showArrow, setShowArrow] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowArrow(false), 4000); // 4秒後に非表示
+    const timer = setTimeout(() => setShowArrow(false), 4000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -51,11 +51,18 @@ const ServiceSection: React.FC = () => {
 
           {/* ✅ 横スクロール可能な表 */}
           <div className="overflow-x-auto mt-8 scrollbar-thin scrollbar-thumb-gray-300">
-            <table className="w-full min-w-[700px] border-separate border-spacing-0 text-center bg-white">
+            {/* 👇 テーブル全体を固定幅モードに変更 */}
+            <table className="table-fixed w-full min-w-[700px] border-separate border-spacing-0 text-center bg-white">
               <thead className="bg-navy text-white">
                 <tr>
-                  {/* 左列固定 */}
-                  <th className="p-3 font-bold text-center sticky left-0 bg-navy z-30 shadow-md">
+                  {/* ✅ 固定列を200pxで固定 */}
+                  <th
+                    className="
+                      p-3 font-bold text-left sticky left-0 
+                      bg-navy z-30 shadow-md
+                      w-[220px] min-w-[220px] max-w-[220px] // ← 修正：固定列の幅を200pxに固定
+                    "
+                  >
                     項目
                   </th>
                   <th className="p-3 font-bold text-center">ライト</th>
@@ -71,7 +78,13 @@ const ServiceSection: React.FC = () => {
                   <React.Fragment key={catIndex}>
                     {/* ✅ カテゴリ行 */}
                     <tr className="sticky top-[52px] z-20">
-                      <td className="p-3 bg-gray-100 font-bold text-navy text-lg border-b border-r border-gray-300 sticky left-0 z-30 text-center">
+                      <td
+                        className="
+                          p-3 bg-gray-100 font-bold text-navy text-lg 
+                          border-b border-r border-gray-300 sticky left-0 z-30 text-left
+                          w-[200px] min-w-[200px] max-w-[200px] // ← 修正：カテゴリ名セルも同じく200px固定
+                        "
+                      >
                         {category.category}
                       </td>
                       <td
@@ -85,7 +98,15 @@ const ServiceSection: React.FC = () => {
                         key={itemIndex}
                         className="border-b border-gray-200 last:border-b-0"
                       >
-                        <td className="p-3 sticky left-0 bg-white z-10 border-r border-gray-200 text-center font-bold text-gray-900">
+                        {/* ✅ 固定列セルも同様に200px固定 */}
+                        <td
+                          className="
+                            p-3 sticky left-0 bg-white z-10 border-r border-gray-200 
+                            text-left font-bold text-gray-900 truncate
+                            text-[14px]
+                            w-[200px] min-w-[200px] max-w-[200px] // ← 修正：ここも200pxで固定
+                          "
+                        >
                           {item.name}
                         </td>
                         <td className="p-3 font-bold text-lg text-gray-800 text-center">
