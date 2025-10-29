@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { Edit, Phone } from "lucide-react";
+import Image from "next/image";
 import React from "react";
-import Button from "../ui/Button";
 
 interface HeroCTAProps {
   onContractClick: () => void;
@@ -18,27 +17,37 @@ const HeroCTA: React.FC<HeroCTAProps> = ({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6"
+        className="flex flex-col md:flex-row justify-center items-center gap-6"
       >
-        {/* 無料相談 */}
-        <Button
+        {/* 無料相談ボタン（画像版） */}
+        <button
           onClick={onConsultClick}
-          variant="primary"
-          size="lg"
-          className="bg-gold text-navy font-semibold hover:bg-yellow-400 transition-all duration-300 w-72 md:w-auto"
+          className="transition-transform hover:scale-105 focus:outline-none"
         >
-          <Phone size={24} /> 無料相談を申し込む
-        </Button>
+          <Image
+            src="/無料相談.png" // ← publicフォルダ直下に配置
+            alt="無料相談を申し込む"
+            width={300}
+            height={100}
+            priority
+            unoptimized
+          />
+        </button>
 
-        {/* 契約ボタン */}
-        <Button
+        {/* 契約ボタン（画像版） */}
+        <button
           onClick={onContractClick}
-          variant="secondary"
-          size="lg"
-          className="bg-navy text-white border border-white font-semibold hover:bg-blue-800 transition-all duration-300 w-72 md:w-auto"
+          className="transition-transform hover:scale-105 focus:outline-none"
         >
-          <Edit size={24} /> 今すぐ契約する
-        </Button>
+          <Image
+            src="/契約ボタン.png" // ← publicフォルダ直下に配置
+            alt="今すぐ契約する"
+            width={300}
+            height={100}
+            priority
+            unoptimized
+          />
+        </button>
       </motion.div>
     </section>
   );
