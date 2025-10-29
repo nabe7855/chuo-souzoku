@@ -34,7 +34,7 @@ const ServiceSection: React.FC = () => {
 
           {/* 🖱️ スクロールヒント（モバイル） */}
           <div className="absolute top-1/2 left-2/3 -translate-x-1/2 z-30 flex items-center justify-center md:hidden pointer-events-none">
-            <div className="bg-white/95 px-5 py-3 rounded-md shadow-md text-center font-semibold backdrop-blur-sm border border-gray-200">
+            <div className="bg-white/50 px-5 py-3 rounded-md shadow-md text-center font-semibold  border border-gray-200">
               <div className="flex items-center justify-center space-x-2 mb-1">
                 <img
                   src="/finger-cursor-icon.png"
@@ -103,7 +103,7 @@ const ServiceSection: React.FC = () => {
                           className="
                             p-3 sticky left-0 bg-white z-10 border-r border-gray-200 
                             text-left font-bold text-gray-900 truncate
-                            text-[14px]
+                            text-[13px]
                             w-[200px] min-w-[200px] max-w-[200px] // ← 修正：ここも200pxで固定
                           "
                         >
