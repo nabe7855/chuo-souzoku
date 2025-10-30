@@ -36,8 +36,8 @@ const ServiceSection: React.FC = () => {
           <div className="absolute top-1/2 left-2/3 -translate-x-1/2 z-30 flex items-center justify-center md:hidden pointer-events-none">
             <div
               className="
-                bg-white/40 px-5 py-3 rounded-md shadow-md text-center font-semibold 
-                backdrop-blur-md border border-gray-300 pointer-events-none
+                bg-white/30 px-5 py-3 rounded-md shadow-md text-center font-semibold 
+                 border border-gray-300 pointer-events-none
               "
             >
               <div className="flex items-center justify-center space-x-2 mb-1">
