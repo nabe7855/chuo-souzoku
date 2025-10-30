@@ -86,7 +86,8 @@ const ServiceSection: React.FC = () => {
                         className="
                           p-3 bg-gray-100 font-bold text-navy text-lg 
                           border-b border-r border-gray-300 sticky left-0 z-30 text-left
-                          w-[00px] min-w-[200px] max-w-[200px]
+                          text-[16px]
+                          w-[200px] min-w-[200px] max-w-[200px]
                         "
                       >
                         {category.category}
