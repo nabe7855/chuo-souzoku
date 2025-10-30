@@ -60,7 +60,6 @@ export const REVIEWS: Review[] = [
   },
 ];
 
-
 export const FAQS: FAQItem[] = [
   {
     question:
@@ -121,20 +120,20 @@ export const SERVICES: ServiceItem[] = [
   {
     category: "各種手続きの代行",
     items: [
+{
+  name: "不動産の名義変更<br />　　　（相続登記）", 
+  light: "❌",
+  standard: "✅",
+  premium: "✅",
+},
       {
-        name: "不動産の名義変更（相続登記）",
+        name: "預貯金・有価証券<br />　　　の名義変更",
         light: "❌",
         standard: "✅",
         premium: "✅",
       },
       {
-        name: "預貯金・有価証券の名義変更",
-        light: "❌",
-        standard: "✅",
-        premium: "✅",
-      },
-      {
-        name: "自動車・保険等の名義変更",
+        name: "自動車・保険等<br />　　　の名義変更",
         light: "❌",
         standard: "✅",
         premium: "✅",
@@ -158,7 +157,7 @@ export const SERVICES: ServiceItem[] = [
         premium: "✅",
       },
       {
-        name: "相続税申告（提携税理士）",
+        name: "相続税申告<br />（提携税理士）",
         light: "△",
         standard: "△",
         premium: "✅",

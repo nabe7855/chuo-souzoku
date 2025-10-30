@@ -32,18 +32,23 @@ const ServiceSection: React.FC = () => {
             </div>
           )}
 
-          {/* 🖱️ スクロールヒント（モバイル） */}
+          {/* 🖱️ スクロールヒント（モバイル・半透明＆干渉防止） */}
           <div className="absolute top-1/2 left-2/3 -translate-x-1/2 z-30 flex items-center justify-center md:hidden pointer-events-none">
-            <div className="bg-white/50 px-5 py-3 rounded-md shadow-md text-center font-semibold  border border-gray-200">
+            <div
+              className="
+                bg-white/40 px-5 py-3 rounded-md shadow-md text-center font-semibold 
+                backdrop-blur-md border border-gray-300 pointer-events-none
+              "
+            >
               <div className="flex items-center justify-center space-x-2 mb-1">
                 <img
                   src="/finger-cursor-icon.png"
                   alt="スクロールアイコン"
-                  className="w-7 h-7"
+                  className="w-7 h-7 opacity-90"
                 />
-                <ChevronRight className="w-5 h-5 text-navy animate-bounce-x" />
+                <ChevronRight className="w-5 h-5 text-navy animate-bounce-x opacity-90" />
               </div>
-              <p className="text-base font-bold text-black">
+              <p className="text-base font-bold text-black drop-shadow-sm opacity-95">
                 スクロールできます
               </p>
             </div>
@@ -51,7 +56,6 @@ const ServiceSection: React.FC = () => {
 
           {/* ✅ 横スクロール可能な表 */}
           <div className="overflow-x-auto mt-8 scrollbar-thin scrollbar-thumb-gray-300">
-            {/* 👇 テーブル全体を固定幅モードに変更 */}
             <table className="table-fixed w-full min-w-[700px] border-separate border-spacing-0 text-center bg-white">
               <thead className="bg-navy text-white">
                 <tr>
@@ -60,7 +64,7 @@ const ServiceSection: React.FC = () => {
                     className="
                       p-3 font-bold text-left sticky left-0 
                       bg-navy z-30 shadow-md
-                      w-[220px] min-w-[220px] max-w-[220px] // ← 修正：固定列の幅を200pxに固定
+                      w-[180px] min-w-[180px] max-w-[180px]
                     "
                   >
                     項目
@@ -82,7 +86,7 @@ const ServiceSection: React.FC = () => {
                         className="
                           p-3 bg-gray-100 font-bold text-navy text-lg 
                           border-b border-r border-gray-300 sticky left-0 z-30 text-left
-                          w-[200px] min-w-[200px] max-w-[200px] // ← 修正：カテゴリ名セルも同じく200px固定
+                          w-[00px] min-w-[200px] max-w-[200px]
                         "
                       >
                         {category.category}
@@ -98,17 +102,18 @@ const ServiceSection: React.FC = () => {
                         key={itemIndex}
                         className="border-b border-gray-200 last:border-b-0"
                       >
-                        {/* ✅ 固定列セルも同様に200px固定 */}
+                        {/* ✅ 固定列セル（200px固定＋<br />対応） */}
                         <td
                           className="
                             p-3 sticky left-0 bg-white z-10 border-r border-gray-200 
                             text-left font-bold text-gray-900 truncate
                             text-[13px]
-                            w-[200px] min-w-[200px] max-w-[200px] // ← 修正：ここも200pxで固定
+                            w-[200px] min-w-[200px] max-w-[200px]
+                            leading-snug
                           "
-                        >
-                          {item.name}
-                        </td>
+                          dangerouslySetInnerHTML={{ __html: item.name }} // ← ここでHTMLタグを反映
+                        ></td>
+
                         <td className="p-3 font-bold text-lg text-gray-800 text-center">
                           {item.light}
                         </td>
