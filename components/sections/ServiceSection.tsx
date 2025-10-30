@@ -36,9 +36,9 @@ const ServiceSection: React.FC = () => {
           <div className="absolute top-1/2 left-2/3 -translate-x-1/2 z-30 flex items-center justify-center md:hidden pointer-events-none">
             <div
               className="
-                bg-white/30 px-5 py-3 rounded-md shadow-md text-center font-semibold 
-                 border border-gray-300 pointer-events-none
-              "
+      bg-white/30 px-5 py-3 rounded-md shadow-md text-center font-semibold 
+      border border-gray-300 pointer-events-none
+    "
             >
               <div className="flex items-center justify-center space-x-2 mb-1">
                 <img
@@ -48,8 +48,11 @@ const ServiceSection: React.FC = () => {
                 />
                 <ChevronRight className="w-5 h-5 text-navy animate-bounce-x opacity-90" />
               </div>
-              <p className="text-base font-bold text-black drop-shadow-sm opacity-95">
-                スクロールできます
+              {/* 👇 ここだけフォントサイズを13pxに変更 */}
+              <p className="text-[13px] font-bold text-black drop-shadow-sm opacity-95 leading-tight">
+                スクロール
+                <br />
+                できます
               </p>
             </div>
           </div>
