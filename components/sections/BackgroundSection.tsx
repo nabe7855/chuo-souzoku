@@ -1,4 +1,3 @@
-import { BarChart2 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import Card from "../ui/Card";
@@ -15,42 +14,54 @@ const BackgroundSection: React.FC = () => {
         </div>
 
         {/* コンテンツ */}
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-stretch">
           {/* 左側 */}
-          <Card className="text-center">
+          <Card className="flex flex-col justify-between text-center h-full">
             <div className="flex justify-center mb-4">
               <Image
-                src="/イメージ1.png" // publicフォルダ内のファイル名
+                src="/イメージ1.png"
                 alt="相続トラブルの非課税世帯割合"
                 width={450}
                 height={300}
-                className="object-contain w-full h-auto"
+                className="object-contain w-full h-auto max-h-[320px]"
                 priority
               />
             </div>
-
-            <h3 className="text-xl font-bold text-navy mb-2">
-              相続トラブルの内、相続税非課税世帯が約80％
-            </h3>
-            <p className="text-gray-600">
-              遺産額の大小にかかわらず、相続トラブルは発生します。
-              「うちは財産がないから大丈夫」という思い込みが、
-              かえって準備を遅らせる原因になっています。
-            </p>
+            <div>
+              <h3 className="text-xl font-bold text-navy mb-2">
+                相続トラブルの内、相続税非課税世帯が約80％
+              </h3>
+              <p className="text-gray-600">
+                遺産額の大小にかかわらず、相続トラブルは発生します。
+                「うちは財産がないから大丈夫」という思い込みが、
+                かえって準備を遅らせる原因になっています。
+              </p>
+            </div>
           </Card>
 
           {/* 右側 */}
-          <Card className="text-center">
-            <BarChart2 className="w-16 h-16 text-gold mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-navy mb-2">
-              登記義務化の認知率は46.6%
-            </h3>
-            <p className="text-gray-600">
-              不動産の相続登記が義務化されましたが、
-              まだ半数以上の方がその事実を知りません。
-              放置すると過料の対象となる可能性があり、
-              早期の対策が求められます。
-            </p>
+          <Card className="flex flex-col justify-between text-center h-full">
+            <div className="flex justify-center mb-4">
+              <Image
+                src="/登録義務化の認知率.png"
+                alt="登記義務化の認知率を示す図"
+                width={450}
+                height={300}
+                className="object-contain w-full h-auto max-h-[320px]"
+                priority
+              />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-navy mb-2">
+                登記義務化の認知率は46.6%
+              </h3>
+              <p className="text-gray-600">
+                不動産の相続登記が義務化されましたが、
+                まだ半数以上の方がその事実を知りません。
+                放置すると過料の対象となる可能性があり、
+                早期の対策が求められます。
+              </p>
+            </div>
           </Card>
         </div>
 
