@@ -1,6 +1,9 @@
 import { FileText, Handshake, Landmark, Scale } from "lucide-react";
 import type { FAQItem, Plan, Review, ServiceItem, TeamMember } from "./types";
 
+/* ------------------------------
+ 💎 各プラン
+------------------------------ */
 export const PLANS: Plan[] = [
   {
     name: "ライトプラン",
@@ -33,6 +36,9 @@ export const PLANS: Plan[] = [
   },
 ];
 
+/* ------------------------------
+ 💬 お客様の声
+------------------------------ */
 export const REVIEWS: Review[] = [
   {
     quote:
@@ -60,6 +66,9 @@ export const REVIEWS: Review[] = [
   },
 ];
 
+/* ------------------------------
+ ❓ よくある質問
+------------------------------ */
 export const FAQS: FAQItem[] = [
   {
     question:
@@ -84,6 +93,9 @@ export const FAQS: FAQItem[] = [
   },
 ];
 
+/* ------------------------------
+ 🧩 サービス項目（完全版）
+------------------------------ */
 export const SERVICES: ServiceItem[] = [
   {
     category: "相続財産を調べる",
@@ -101,7 +113,26 @@ export const SERVICES: ServiceItem[] = [
         standard: "✅",
         premium: "✅",
       },
-      { name: "海外資産の調査", light: "❌", standard: "❌", premium: "✅" },
+      { name: "不動産評価", light: "✅", standard: "✅", premium: "✅" },
+      { name: "不動産登記簿収集", light: "✅", standard: "✅", premium: "✅" },
+      {
+        name: "相続税試算（算出）",
+        light: "✅",
+        standard: "✅",
+        premium: "✅",
+      },
+      {
+        name: "現状ヒアリング・分析評価",
+        light: "✅",
+        standard: "✅",
+        premium: "✅",
+      },
+      {
+        name: "海外資産の調査",
+        light: "❌",
+        standard: "❌",
+        premium: "✅（別料金）",
+      },
     ],
   },
   {
@@ -109,36 +140,30 @@ export const SERVICES: ServiceItem[] = [
     items: [
       {
         name: "遺産分割協議書の作成",
-        light: "✅",
+        light: "❌",
         standard: "✅",
         premium: "✅",
       },
-      { name: "遺言書作成サポート", light: "△", standard: "△", premium: "✅" },
-      { name: "家族信託のコンサル", light: "❌", standard: "△", premium: "✅" },
-    ],
-  },
-  {
-    category: "各種手続きの代行",
-    items: [
-{
-  name: "不動産の名義変更<br />　　　（相続登記）", 
-  light: "❌",
-  standard: "✅",
-  premium: "✅",
-},
+      { name: "遺言書作成支援", light: "❌", standard: "✅", premium: "✅" },
       {
-        name: "預貯金・有価証券<br />　　　の名義変更",
+        name: "法定相続情報一覧図作成",
         light: "❌",
         standard: "✅",
         premium: "✅",
       },
       {
-        name: "自動車・保険等<br />　　　の名義変更",
-        light: "❌",
+        name: "相続トラブル対策",
+        light: "△（口頭助言）",
         standard: "✅",
         premium: "✅",
       },
-      { name: "相続放棄の手続き支援", light: "△", standard: "△", premium: "△" },
+      { name: "贈与契約書作成", light: "❌", standard: "✅", premium: "✅" },
+      {
+        name: "家族信託のコンサルティング",
+        light: "❌",
+        standard: "△（簡易助言）",
+        premium: "✅",
+      },
     ],
   },
   {
@@ -151,21 +176,71 @@ export const SERVICES: ServiceItem[] = [
         premium: "✅",
       },
       {
+        name: "相続税対策提案",
+        light: "△（口頭説明）",
+        standard: "✅",
+        premium: "✅",
+      },
+      { name: "贈与税対策", light: "❌", standard: "✅", premium: "✅" },
+      { name: "生前贈与支援", light: "❌", standard: "✅", premium: "✅" },
+      {
         name: "二次相続を考慮した対策",
         light: "❌",
-        standard: "❌",
+        standard: "△（口頭説明）",
         premium: "✅",
       },
       {
-        name: "相続税申告<br />（提携税理士）",
-        light: "△",
-        standard: "△",
+        name: "資産運用相談",
+        light: "❌",
+        standard: "△（一般説明）",
+        premium: "✅",
+      },
+      { name: "老後資金計画", light: "❌", standard: "✅", premium: "✅" },
+      { name: "保険見直し相談", light: "❌", standard: "✅", premium: "✅" },
+      {
+        name: "相続税申告（提携税理士）",
+        light: "❌",
+        standard: "△（紹介のみ）",
         premium: "✅",
       },
     ],
   },
+  {
+    category: "各種手続きの代行／支援",
+    items: [
+      {
+        name: "不動産の名義変更（相続登記）",
+        light: "❌",
+        standard: "✅",
+        premium: "✅",
+      },
+      {
+        name: "預貯金・有価証券の名義変更",
+        light: "❌",
+        standard: "✅",
+        premium: "✅",
+      },
+      {
+        name: "金融機関書類チェック",
+        light: "△（簡易確認）",
+        standard: "✅",
+        premium: "✅",
+      },
+      {
+        name: "自動車・保険等の名義変更",
+        light: "❌",
+        standard: "✅",
+        premium: "✅",
+      },
+      { name: "相続登記書類支援", light: "❌", standard: "✅", premium: "✅" },
+      { name: "相続放棄の手続き支援", light: "△", standard: "△", premium: "△" },
+    ],
+  },
 ];
 
+/* ------------------------------
+ 👥 チーム紹介
+------------------------------ */
 export const TEAM_MEMBERS: TeamMember[] = [
   { name: "山田 太郎", title: "代表司法書士", icon: Scale },
   { name: "鈴木 花子", title: "税理士（提携）", icon: Landmark },

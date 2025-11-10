@@ -36,9 +36,9 @@ const ServiceSection: React.FC = () => {
           <div className="absolute top-1/2 left-2/3 -translate-x-1/2 z-30 flex items-center justify-center md:hidden pointer-events-none">
             <div
               className="
-      bg-white/30 px-5 py-3 rounded-md shadow-md text-center font-semibold 
-      border border-gray-300 pointer-events-none
-    "
+                bg-white/30 px-5 py-3 rounded-md shadow-md text-center font-semibold 
+                border border-gray-300 pointer-events-none
+              "
             >
               <div className="flex items-center justify-center space-x-2 mb-1">
                 <img
@@ -48,7 +48,6 @@ const ServiceSection: React.FC = () => {
                 />
                 <ChevronRight className="w-5 h-5 text-navy animate-bounce-x opacity-90" />
               </div>
-              {/* 👇 ここだけフォントサイズを13pxに変更 */}
               <p className="text-[13px] font-bold text-black drop-shadow-sm opacity-95 leading-tight">
                 スクロール
                 <br />
@@ -62,21 +61,26 @@ const ServiceSection: React.FC = () => {
             <table className="table-fixed w-full min-w-[700px] border-separate border-spacing-0 text-center bg-white">
               <thead className="bg-navy text-white">
                 <tr>
-                  {/* ✅ 固定列を200pxで固定 */}
+                  {/* ✅ 固定列（項目） */}
                   <th
                     className="
                       p-3 font-bold text-left sticky left-0 
                       bg-navy z-30 shadow-md
-                      w-[180px] min-w-[180px] max-w-[180px]
+                      w-[80px] min-w-[180px] max-w-[180px]
                     "
                   >
                     項目
                   </th>
-                  <th className="p-3 font-bold text-center">ライト</th>
-                  <th className="p-3 font-bold text-center bg-gold/20">
+                  {/* ✅ ライト列のみ190px固定 */}
+                  <th className="p-3 font-bold text-center w-[50px] min-w-[50px] max-w-[50px]">
+                    ライト
+                  </th>
+                  <th className="p-3 font-bold text-center w-[70px] min-w-[70px] max-w-[70px] bg-gold/20">
                     スタンダード
                   </th>
-                  <th className="p-3 font-bold text-center">プレミアム</th>
+                  <th className="p-3 font-bold text-center w-[70px] min-w-[70px] max-w-[70px]">
+                    プレミアム
+                  </th>
                 </tr>
               </thead>
 
@@ -90,7 +94,7 @@ const ServiceSection: React.FC = () => {
                           p-3 bg-gray-100 font-bold text-navy text-lg 
                           border-b border-r border-gray-300 sticky left-0 z-30 text-left
                           text-[16px]
-                          w-[200px] min-w-[200px] max-w-[200px]
+                          w-[180px] min-w-[180px] max-w-[180px]
                         "
                       >
                         {category.category}
@@ -106,21 +110,23 @@ const ServiceSection: React.FC = () => {
                         key={itemIndex}
                         className="border-b border-gray-200 last:border-b-0"
                       >
-                        {/* ✅ 固定列セル（200px固定＋<br />対応） */}
+                        {/* ✅ 固定列セル */}
                         <td
                           className="
                             p-3 sticky left-0 bg-white z-10 border-r border-gray-200 
                             text-left font-bold text-gray-900 truncate
                             text-[13px]
-                            w-[200px] min-w-[200px] max-w-[200px]
+                            w-[180px] min-w-[180px] max-w-[180px]
                             leading-snug
                           "
-                          dangerouslySetInnerHTML={{ __html: item.name }} // ← ここでHTMLタグを反映
+                          dangerouslySetInnerHTML={{ __html: item.name }}
                         ></td>
 
-                        <td className="p-3 font-bold text-lg text-gray-800 text-center">
+                        {/* ✅ ライト列だけ幅190px */}
+                        <td className="p-3 font-bold text-lg text-gray-800 text-center w-[190px] min-w-[190px] max-w-[190px]">
                           {item.light}
                         </td>
+                        {/* 他の列は従来通り */}
                         <td className="p-3 font-bold text-lg bg-gold/10 text-gold-dark text-center">
                           {item.standard}
                         </td>
