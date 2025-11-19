@@ -1,11 +1,13 @@
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import React, { useState } from "react";
+import { FAQS } from "../../constants";
+import SectionTitle from "../ui/SectionTitle";
 
-import React, { useState } from 'react';
-import SectionTitle from '../ui/SectionTitle';
-import { FAQS } from '../../constants';
-import { ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-
-const FAQItem: React.FC<{ item: { question: string, answer: string }, index: number }> = ({ item, index }) => {
+const FAQItem: React.FC<{
+  item: { question: string; answer: string };
+  index: number;
+}> = ({ item, index }) => {
   const [isOpen, setIsOpen] = useState(index === 0);
 
   return (
@@ -16,14 +18,16 @@ const FAQItem: React.FC<{ item: { question: string, answer: string }, index: num
       >
         <span className="text-lg font-semibold text-navy">{item.question}</span>
         <ChevronDown
-          className={`w-6 h-6 text-navy transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-6 h-6 text-navy transform transition-transform ${
+            isOpen ? "rotate-180" : ""
+          }`}
         />
       </button>
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
