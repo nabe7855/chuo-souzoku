@@ -334,9 +334,20 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onBackToHome }) => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleNumberSubmit()}
                 placeholder="例: 2"
-                className="w-full border-2 border-gray-300 rounded-xl px-4 py-3 pr-12 focus:outline-none focus:border-[var(--color-navy)] focus:ring-[var(--color-navy)] transition text-lg　 text-[#0D1B2A]  
-    placeholder-gray-500 
-    placeholder-opacity-100 "
+                className="
+    w-full 
+    border-2 border-gray-300 
+    rounded-xl 
+    px-4 py-3 pr-12
+    focus:outline-none 
+    focus:border-[var(--color-navy)] 
+    focus:ring-[var(--color-navy)] 
+    transition 
+    text-lg
+    text-[#0D1B2A]              /* ← 入力文字が濃くなる */
+    placeholder-gray-500         /* ← placeholder濃くする */
+    placeholder-opacity-100      /* ← スマホで薄くされない */
+  "
                 autoFocus
                 inputMode="numeric"
               />
