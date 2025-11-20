@@ -1,42 +1,55 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
+    /* === 🔥 コンパイルターゲット === */
+    "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+
+    /* === 🔥 モジュール設定 === */
+    "module": "ESNext",
     "moduleResolution": "bundler",
+    "moduleDetection": "force",
+
+    /* === 🔥 JSX（React 19 用） === */
+    "jsx": "preserve",
+
+    /* === 🔥 TypeScript 挙動 === */
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowJs": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
     "incremental": true,
+    "noEmit": true,
 
-    // ✅ Next.jsのTypeScriptプラグイン
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    /* === 🔥 デコレーター（Vite版の設定を統合） === */
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
 
-    // ✅ 絶対パスインポートの設定（components, constants など）
+    /* === 🔥 Next.js 用プラグイン === */
+    "plugins": [{ "name": "next" }],
+
+    /* === 🔥 絶対パス alias === */
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     }
   },
 
-  // ✅ 型解決範囲を明示的に拡張
+  /* === 🔥 TypeScript が探索するファイル === */
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
     "components/**/*",
-    "constants/**/*",
-    "types/**/*"
+    "app/**/*",
+    "lib/**/*",
+    "hooks/**/*",
+    "types/**/*",
+    "constants/**/*"
   ],
+
+  /* === 🔥 除外フォルダ === */
   "exclude": ["node_modules"]
 }

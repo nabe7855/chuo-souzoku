@@ -2,22 +2,22 @@ import Image from "next/image";
 import React from "react";
 
 interface MobileCTAProps {
-  onSpeedCheckClick: () => void;
+  onOpenChat: () => void; // ← ★ 追加：チャットを開く
   onContractClick: () => void;
   onConsultClick: () => void;
 }
 
 const MobileCTA: React.FC<MobileCTAProps> = ({
-  onSpeedCheckClick,
+  onOpenChat,
   onContractClick,
   onConsultClick,
 }) => {
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white z-40">
       <div className="w-full flex flex-col">
-        {/* ◆ 1段目（バウンス） */}
+        {/* ◆ 1段目：チャット起動 */}
         <button
-          onClick={onSpeedCheckClick}
+          onClick={onOpenChat}
           className="w-full active:animate-ctaBounce"
         >
           <Image
@@ -31,7 +31,7 @@ const MobileCTA: React.FC<MobileCTAProps> = ({
           />
         </button>
 
-        {/* ◆ 2段目（左右2カラム・バウンス） */}
+        {/* ◆ 2段目：申込 & 無料相談 */}
         <div className="flex w-full">
           <button
             onClick={onContractClick}
