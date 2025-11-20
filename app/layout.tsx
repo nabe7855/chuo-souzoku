@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import ClientLayout from "./ClientLayout";
 import "./globals.css";
 
-// ✅ メタデータ（HTMLの<head>に相当）
 export const metadata: Metadata = {
   title: "中央相続事務所｜あんしん相続パック",
   description:
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
   },
 };
 
-// ✅ RootLayout（Server Componentとして扱う）
 export default function RootLayout({
   children,
 }: {
@@ -25,7 +23,10 @@ export default function RootLayout({
       <body className="overflow-x-hidden bg-white text-gray-800 font-sans">
         <ClientLayout>
           <Header />
-          <main className="pt-16 pb-24 md:pt-0 md:pb-0">{children}</main>
+
+          {/* ★★★ 修正ここ！ ★★★ */}
+          <main className="w-full overflow-x-hidden">{children}</main>
+
           <FooterSection />
         </ClientLayout>
       </body>

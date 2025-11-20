@@ -23,8 +23,8 @@ export default {
       serif: ["Georgia", "serif"],
     },
 
-    // ✨ スクロールヒント用アニメーションを追加
     extend: {
+      // ✨ スクロールヒント用アニメーション
       keyframes: {
         fadeInOut: {
           "0%": { opacity: "0" },
@@ -35,14 +35,23 @@ export default {
           "0%, 100%": { transform: "translateX(0)" },
           "50%": { transform: "translateX(6px)" },
         },
+
+        // ✨ CTA ボタン用バウンスアニメーション（追加）
+        ctaBounce: {
+          "0%": { transform: "scale(1)" },
+          "40%": { transform: "scale(0.92)" },
+          "100%": { transform: "scale(1)" },
+        },
       },
       animation: {
         fadeInOut: "fadeInOut 4s ease-in-out forwards",
         leftRight: "leftRight 1.2s ease-in-out infinite",
+
+        // ✨ 追加
+        ctaBounce: "ctaBounce 180ms cubic-bezier(0.34, 1.56, 0.64, 1)",
       },
     },
   },
 
-  // ✅ スクロールバー表示用プラグインを追加
   plugins: [require("tailwind-scrollbar")],
 };

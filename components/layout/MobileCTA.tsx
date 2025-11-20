@@ -2,48 +2,67 @@ import Image from "next/image";
 import React from "react";
 
 interface MobileCTAProps {
-  onConsultClick: () => void;
+  onSpeedCheckClick: () => void;
   onContractClick: () => void;
+  onConsultClick: () => void;
 }
 
 const MobileCTA: React.FC<MobileCTAProps> = ({
-  onConsultClick,
+  onSpeedCheckClick,
   onContractClick,
+  onConsultClick,
 }) => {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.1)] p-3 z-40">
-      <div className="container mx-auto flex justify-center gap-3">
-        {/* 無料相談ボタン（画像版） */}
+    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white z-40">
+      <div className="w-full flex flex-col">
+        {/* ◆ 1段目（バウンス） */}
         <button
-          onClick={onConsultClick}
-          className="transition-transform hover:scale-105 focus:outline-none w-1/2 flex justify-center"
+          onClick={onSpeedCheckClick}
+          className="w-full active:animate-ctaBounce"
         >
           <Image
-            src="/無料相談.png" // public直下に配置
-            alt="無料相談を申し込む"
-            width={300}
-            height={100}
+            src="/フッターナビゲーション1.png"
+            alt="30秒スピード相続診断する"
+            width={800}
+            height={200}
             priority
             unoptimized
             className="w-full h-auto"
           />
         </button>
 
-        {/* 契約ボタン（画像版） */}
-        <button
-          onClick={onContractClick}
-          className="transition-transform hover:scale-105 focus:outline-none w-1/2 flex justify-center"
-        >
-          <Image
-            src="/契約ボタン.png" // public直下に配置
-            alt="今すぐ契約する"
-            width={300}
-            height={100}
-            priority
-            unoptimized
-            className="w-full h-auto"
-          />
-        </button>
+        {/* ◆ 2段目（左右2カラム・バウンス） */}
+        <div className="flex w-full">
+          <button
+            onClick={onContractClick}
+            className="w-1/2 active:animate-ctaBounce"
+          >
+            <Image
+              src="/フッターナビゲーション2.png"
+              alt="お申込みはこちら"
+              width={400}
+              height={200}
+              priority
+              unoptimized
+              className="w-full h-auto"
+            />
+          </button>
+
+          <button
+            onClick={onConsultClick}
+            className="w-1/2 active:animate-ctaBounce"
+          >
+            <Image
+              src="/フッターナビゲーション3.png"
+              alt="無料相談はこちら"
+              width={400}
+              height={200}
+              priority
+              unoptimized
+              className="w-full h-auto"
+            />
+          </button>
+        </div>
       </div>
     </div>
   );
