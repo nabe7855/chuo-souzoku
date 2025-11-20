@@ -24,7 +24,6 @@ interface ChatInterfaceProps {
 }
 
 const ChatInterface: React.FC<ChatInterfaceProps> = ({ onBackToHome }) => {
-  // State
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
 
@@ -328,6 +327,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onBackToHome }) => {
         {inputType === "number" && (
           <div className="flex gap-2">
             <div className="relative flex-1">
+              {/* FIXED INPUT */}
               <input
                 type="number"
                 value={inputValue}
@@ -335,22 +335,24 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onBackToHome }) => {
                 onKeyDown={(e) => e.key === "Enter" && handleNumberSubmit()}
                 placeholder="例: 2"
                 className="
-    w-full 
-    border-2 border-gray-300 
-    rounded-xl 
-    px-4 py-3 pr-12
-    focus:outline-none 
-    focus:border-[var(--color-navy)] 
-    focus:ring-[var(--color-navy)] 
-    transition 
-    text-lg
-    text-[#0D1B2A]              /* ← 入力文字が濃くなる */
-    placeholder-gray-500         /* ← placeholder濃くする */
-    placeholder-opacity-100      /* ← スマホで薄くされない */
-  "
+  w-full 
+  border-2 border-gray-300 
+  rounded-xl 
+  px-4 py-3 pr-12
+  focus:outline-none 
+  focus:border-[var(--color-navy)] 
+  focus:ring-[var(--color-navy)]
+  transition 
+  text-lg
+  text-[#0D1B2A]              /* ← 通常文字色 */
+  placeholder-gray-500
+  placeholder-opacity-100
+  [-webkit-text-fill-color:#0D1B2A]  /* ← スマホで薄くならない */
+"
                 autoFocus
                 inputMode="numeric"
               />
+
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold pointer-events-none">
                 人
               </span>
